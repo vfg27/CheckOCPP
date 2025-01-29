@@ -24,8 +24,6 @@ local function is_one_of(t)
 end
 
 -- Various common routines used by the Lua CJSON package
---
--- Mark Pulford <mark@kyne.com.au>
 
 -- Determine with a Lua table can be treated as an array.
 -- Explicitly returns "not an array" for very sparse arrays.

@@ -1,17 +1,3 @@
--- This module is a store for all schemas unused in a code context.
--- It is meant to deal with the id and $ref madness that JSON schema authors
--- managed to put together. Resolving JSON references involves full URI
--- parsing, absolute/relative URLs, scope management, id aliases, multipass
--- parsing (as you have to walk the document a first time to discover all ids)
--- and other niceties.
---
--- Don't try to find any logic in this code, there isn't: this is just an
--- implementation of [1] which is foreign to the concept of *logic*.
---
--- [1] http://json-schema.org/latest/json-schema-core.html#rfc.section.8
-
--- I gave up (for now) on doing a stripped down URI parser only for JSON schema
--- needs
 local url = require 'net.url'
 local schar = string.char
 

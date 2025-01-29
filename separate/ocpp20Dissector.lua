@@ -90,7 +90,7 @@ function printTable(tbl, indent)
     end
 end
 
--- Call this function once during initialization
+
 print('************************2.0************************')
 load_schemas(os.getenv("HOME") .. "/Desktop/ocpp-simulator/venv/lib/python3.12/site-packages/ocpp/v20/schemas")
 printTable(schemas20)
@@ -231,9 +231,9 @@ function ocpp_proto.dissector(buffer, pinfo, tree)
     if not(message_type == 3) then
         message_name = cleanElement(elements[3]:gsub('^["\'](.-)["\']$', '%1'))
         print(string.format("Name: %s", tostring(message_name)))
-        json_data_str = cleanElement(elements[4]) -- The JSON object string
+        json_data_str = cleanElement(elements[4])
     else
-        json_data_str = cleanElement(elements[3]) -- The JSON object string
+        json_data_str = cleanElement(elements[3])
     end
 
     print(string.format("Data: %s", tostring(json_data_str)))

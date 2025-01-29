@@ -1,9 +1,3 @@
--- net/url.lua - a robust url parser and builder
---
--- Bertrand Mansion, 2011-2021; License MIT
--- @module net.url
--- @alias	M
-
 local M = {}
 M.version = "1.1.0"
 

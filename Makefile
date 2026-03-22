@@ -39,7 +39,25 @@ install-multiple:
 
 # Clean target
 clean:
-	@echo "Cleaning up..."
-	rm -rf $(PLUGIN_DIR)/*
+	@echo "Cleaning only files installed by this Makefile..."
+
+	# Remove single dissector (if installed)
+	rm -f $(PLUGIN_DIR)/$(SINGLE_FILE)
+
+	# Remove multiple dissectors (if installed)
+	rm -f $(addprefix $(PLUGIN_DIR)/,$(notdir $(MULTIPLE_FILES)))
+
+	# Remove shared lua file
+	rm -f $(PLUGIN_DIR)/$(FILES)
+
+	# Remove copied dependency files
+	rm -f $(CJSON)/util.lua
+	rm -f $(JSON)/store.lua
+	rm -f $(NET)/url.lua
+
+	# Remove directories only if empty
+	rmdir --ignore-fail-on-non-empty $(CJSON) 2>/dev/null || true
+	rmdir --ignore-fail-on-non-empty $(JSON) 2>/dev/null || true
+	rmdir --ignore-fail-on-non-empty $(NET) 2>/dev/null || true
 
 .PHONY: all install-all install-single install-multiple clean

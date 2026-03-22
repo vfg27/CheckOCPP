@@ -14,9 +14,10 @@ CheckOCPP is a Wireshark dissector for the Open Charge Point Protocol (OCPP). It
 ## Installation
 
 1. Ensure you have Wireshark installed on your system.
-2. Modify the path to the schemas in the `.lua` files when the `load_schemas` function is called.
-3. Use 'make install-single' or 'make install-multiple' to install the dissector.
-4. Restart Wireshark to load the dissector.
+2. Ensure you have installed the library `lua-cjson`.
+3. Modify the path to the schemas in the `.lua` files when the `load_schemas` function is called.
+4. Use 'make install-single' or 'make install-multiple' to install the dissector.
+5. Restart Wireshark to load the dissector.
 
 ## Usage
 
